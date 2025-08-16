@@ -43,7 +43,6 @@ export default function TakeQuizPage() {
       const response = await quizApi.getById(quizId);
       setQuiz(response.data);
       
-      // Initialize user answers
       const initialAnswers = response.data.questions.map((q: any) => ({
         questionId: q.id,
         answer: q.type === 'checkbox' ? [] : ''

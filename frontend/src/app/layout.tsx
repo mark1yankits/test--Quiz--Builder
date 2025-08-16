@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Quiz Builder',
-  description: 'Створюй власні квізи з різними типами питань',
+  description: 'Create your own quizzes with different question types',
 };
 
 export default function RootLayout({
@@ -22,20 +22,27 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex items-center">
-                <Link href="/" className="text-xl font-bold text-gray-900">
+                <Link href="/" className="text-3xl font-bold"
+                style={{
+                  background: "linear-gradient(90deg, rgb(158, 40, 40) 30%, rgb(6, 9, 65) 80%)",
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+                >
                   Quiz Builder
                 </Link>
               </div>
               <div className="flex items-center space-x-4">
                 <Link 
                   href="/create"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                  className="text-md font-bold text-black hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-800 hover:to-blue-900 transition-colors duration-300"
+                  >
                   Create
                 </Link>
                 <Link 
                   href="/quizzes"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-green-900 hover:text-green-500 px-3 py-2 rounded-md text-md font-medium"
                 >
                   Quizzes
                 </Link>

@@ -56,7 +56,11 @@ export default function QuizzesListPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen py-8"
+    style={{
+      background: "linear-gradient(to top,rgba(9, 2, 48, 0.6) 80%, rgb(131, 22, 22) 100%)",
+    }}
+    >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-900">All Quizzes</h1>

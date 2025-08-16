@@ -69,10 +69,10 @@
 
 
 ### Quizzes
-- `POST /quizzes` - Create a new quiz
-- `GET /quizzes` - Get all quizzes with question count
-- `GET /quizzes/:id` - Get quiz details with questions
-- `DELETE /quizzes/:id` - Delete a quiz
+ `POST /quizzes` - Create a new quiz
+ `GET /quizzes` - Get all quizzes with question count
+ `GET /quizzes/:id` - Get quiz details with questions
+ `DELETE /quizzes/:id` - Delete a quiz
 
 ## 🎯 Usage
 

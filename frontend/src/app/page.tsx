@@ -2,12 +2,16 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+    <main className="min-h-screen p-8"
+    style={{
+      background: "linear-gradient(rgba(9, 2, 48, 0.6) 75%, rgb(214, 67, 67) 100%)",
+    }}
+    >
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-6xl font-bold text-gray-900 mb-6">
+        <h1 className="text-6xl font-bold text-white mb-6">
           Quiz Builder
         </h1>
-        <p className="text-xl text-gray-600 mb-12">
+        <p className="text-xl text-white/60 mb-12">
           Create your own quizzes with different question types
         </p>
         

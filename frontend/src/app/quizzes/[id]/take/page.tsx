@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { quizApi } from '@/services/api';
 import { Quiz } from '@/types';
 
+
 interface UserAnswer {
   questionId: string;
   answer: string | string[];
@@ -43,7 +44,7 @@ export default function TakeQuizPage() {
       setQuiz(response.data);
       
       // Initialize user answers
-      const initialAnswers = response.data.questions.map(q => ({
+      const initialAnswers = response.data.questions.map((q: any) => ({
         questionId: q.id,
         answer: q.type === 'checkbox' ? [] : ''
       }));
@@ -86,14 +87,14 @@ export default function TakeQuizPage() {
       const userAnswer = userAnswers[index];
       
       if (question.type === 'boolean' || question.type === 'input') {
-        if (userAnswer.answer === question.correctAnswers[0]) {
+        if (userAnswer.answer === question.correctAnswers?.[0]) {
           correctAnswers++;
         }
       } else if (question.type === 'checkbox') {
         const userAnswersArray = Array.isArray(userAnswer.answer) ? userAnswer.answer : [];
         const correctAnswersArray = question.correctAnswers;
         
-        if (userAnswersArray.length === correctAnswersArray.length &&
+        if (userAnswersArray.length === correctAnswersArray?.length &&
             userAnswersArray.every(answer => correctAnswersArray.includes(answer))) {
           correctAnswers++;
         }
@@ -210,10 +211,10 @@ export default function TakeQuizPage() {
           {quiz.questions.map((question, index) => {
             const userAnswer = quizResult.answers[index];
             const isCorrect = question.type === 'boolean' || question.type === 'input' 
-              ? userAnswer.answer === question.correctAnswers[0]
+              ? userAnswer.answer === question.correctAnswers?.[0]
               : Array.isArray(userAnswer.answer) && 
-                userAnswer.answer.length === question.correctAnswers.length &&
-                userAnswer.answer.every(answer => question.correctAnswers.includes(answer));
+                userAnswer.answer.length === question.correctAnswers?.length &&
+                userAnswer.answer.every(answer => question.correctAnswers?.includes(answer));
 
             return (
               <div key={question.id} className={`p-4 rounded-lg border ${
@@ -235,7 +236,7 @@ export default function TakeQuizPage() {
                       }
                     </p>
                     <p className="text-sm text-gray-600">
-                      <span className="font-medium">Correct answer:</span> {question.correctAnswers.join(', ')}
+                      <span className="font-medium">Correct answer:</span> {question.correctAnswers?.join(', ')}
                     </p>
                   </div>
                 </div>

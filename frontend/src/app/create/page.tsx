@@ -20,6 +20,7 @@ interface CreateQuizForm {
 export default function CreateQuizPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const { register, control, handleSubmit, watch, formState: { errors } } = useForm<CreateQuizForm>({
     defaultValues: {
@@ -60,11 +61,17 @@ export default function CreateQuizPage() {
   const onSubmit = async (data: CreateQuizForm) => {
     try {
       setIsSubmitting(true);
-      await quizApi.create(data);
+      setError(null);
+      
+      console.log('Submitting data:', data);
+      
+      const response = await quizApi.create(data);
+      console.log('Response:', response);
+      
       router.push('/quizzes');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error creating quiz:', error);
-      alert('Failed to create quiz');
+      setError(error.response?.data?.message || 'Failed to create quiz');
     } finally {
       setIsSubmitting(false);
     }
@@ -75,6 +82,12 @@ export default function CreateQuizPage() {
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-6">Create New Quiz</h1>
+          
+          {error && (
+            <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+              {error}
+            </div>
+          )}
           
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Quiz Title */}

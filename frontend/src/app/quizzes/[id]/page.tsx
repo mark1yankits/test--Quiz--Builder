@@ -123,6 +123,12 @@ export default function QuizDetailPage() {
             >
               Back to Quizzes
             </Link>
+            <Link
+                href={`/quizzes/${quizId}/take`}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors"
+                >
+                Take Quiz
+            </Link>
           </div>
 
           <div className="border-t border-gray-200 pt-6">

@@ -31,13 +31,13 @@ export default function RootLayout({
                   href="/create"
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Створити
+                  Create
                 </Link>
                 <Link 
                   href="/quizzes"
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Квізи
+                  Quizzes
                 </Link>
               </div>
             </div>

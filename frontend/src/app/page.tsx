@@ -8,7 +8,7 @@ export default function Home() {
           Quiz Builder
         </h1>
         <p className="text-xl text-gray-600 mb-12">
-          Створюй власні квізи з різними типами питань
+          Create your own quizzes with different question types
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -16,13 +16,13 @@ export default function Home() {
             href="/create"
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
           >
-            Створити квіз
+            Create Quiz
           </Link>
           <Link 
             href="/quizzes"
             className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
           >
-            Переглянути квізи
+            View Quizzes
           </Link>
         </div>
       </div>
